@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "configurePresets": [
+    {
+      "name": "gcc-ninja-debug-cxx",
+      "binaryDir": "${sourceDir}/build/debug",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wpedantic -Werror -Wfatal-errors -pedantic-errors -Wextra -Wno-unused-variable",
+        "CMAKE_CXX_COMPILER": "g++",
+	"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "gcc-ninja-release-cxx",
+      "binaryDir": "${sourceDir}/build/release",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Werror -Wfatal-errors -Wextra -Wno-unused-variable",
+        "CMAKE_CXX_COMPILER": "g++",
+	"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ]
+}

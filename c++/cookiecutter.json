@@ -1,0 +1,9 @@
+{
+  "name": "Hello World",
+  "version": "0.1.0",
+  "description": "Simple hello world program",
+  "projectile-configure": "cmake -S . --preset=gcc-ninja-debug-cxx",
+  "projectile-compile": "cmake --build build/debug",
+  "projectile-test": "ctest --test-dir build/debug/tests",
+  "projectile-run": "cd ./build/debug/src && ./main"
+}
