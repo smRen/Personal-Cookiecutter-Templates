@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-  {{cookiecutter.name}}
-  VERSION {{cookiecutter.version}}
-  DESCRIPTION {{cookiecutter.description}}
+  {{cookiecutter.cmake_project_name}}
+  VERSION {{cookiecutter.cmake_version}}
+  DESCRIPTION {{cookiecutter.cmake_description}}
   LANGUAGES CXX)
 
 # Testing
