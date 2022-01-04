@@ -1,7 +1,7 @@
 .PHONY: configure build test run clean
 
 configure:
-	cmake -S . --preset=gcc-ninja-debug-cxx
+	cmake -S . --preset=gcc-ninja-debug-cxx && ln -s build/debug/compile_commands.json
 
 build:
 	cmake --build ./build/debug
@@ -14,3 +14,4 @@ run:
 
 clean:
 	rm -rf ./build
+	unlink compile_commands.json
