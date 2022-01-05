@@ -24,6 +24,6 @@ clean: ## Remove build related files
 .DEFAULT_GOAL :=
 help :
 	@printf "\nRun configure first then build\n-----------------------"
-	@printf "\n\u001b[31m%s\u001b[0m\n" "Commands:"
+	@printf "\n\033[31m%s\033[0m\n" "Commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[35m%-30s\033[0m %s\n", $$1, $$2}'
 	@printf "\n"
