@@ -1,4 +1,4 @@
-set(STANDARD_C++ "{{cookiecutter.cpp_standard}}")
+set(STANDARD_C++ {{cookiecutter.cpp_standard}})
 
 if (STANDARD_C++ STREQUAL "C++20")
   set(STANDARD_COMPILE_FEATURE cxx_std_20)
@@ -10,4 +10,12 @@ endif()
 
 add_executable(main main.cpp)
 target_compile_features(main PRIVATE ${STANDARD_COMPILE_FEATURE})
-target_include_directories(main PUBLIC ../include)
+target_include_directories(
+  main
+  PRIVATE
+  ${{{cookiecutter.cmake_project_name}}_SOURCE_DIR}/include)
+target_link_libraries(
+  main
+  PRIVATE
+  nlohmann_json::nlohmann_json
+  fmt::fmt)
