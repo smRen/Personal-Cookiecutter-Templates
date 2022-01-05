@@ -1,25 +1,28 @@
 .PHONY: configure build test run clean help
 
-configure:
-	cmake -S . --preset=gcc-ninja-debug-cxx && ln -s build/debug/compile_commands.json
+configure: ## Configure default cmake project debug with GCC and Ninja
+	@cmake -S . --preset=gcc-ninja-debug-cxx
+	@printf "\nProject configured for GCC and Ninja:\n"
+	@ln -s build/debug/compile_commands.json
+	@printf "Copied compile_commands.json to project root\n"
 
-build:
-	cmake --build ./build/debug
+build: ## Compile project
+	@cmake --build ./build/debug
+	@printf "Program built\n"
 
-test:
-	ctest --test-dir ./build/debug/tests
+test: ## Test project
+	@ctest --test-dir ./build/debug/tests
+	@printf "Program tested\n"
 
-run:
-	cd ./build/debug/src && ./main
+run: ## Run program
+	@cd ./build/debug/src && ./main
+	@printf "Program ran\n"
 
-clean:
-	rm -rf ./build
-	unlink compile_commands.json
+clean: ## Remove build related files
+	@rm -rf ./build
+	@unlink compile_commands.json
+	@printf "Build files cleaned up\n"
 
 .DEFAULT_GOAL :=
 help :
-	@echo "configure	Configure default cmake project debug with GCC and Ninja"
-	@echo "build		Compile project"
-	@echo "test		Run tests"
-	@echo "run		Run main program"
-	@echo "clean		Remove cmake related files"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
