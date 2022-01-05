@@ -2,5 +2,5 @@
   "directory_name": "HelloWorld",
   "cmake_project_name": "HelloWorld",
   "cmake_version": "0.1.0",
-  "cmake_description": "\"Simple hello world program\"",
+  "cmake_description": "Simple hello world program"
 }
