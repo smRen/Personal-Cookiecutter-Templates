@@ -8,7 +8,7 @@ configure: ## Configure default cmake project debug with GCC and Ninja
 
 build: ## Compile project
 	@cmake --build ./build/debug
-	@printf "\033[32mProgram built\n\032[0m"
+	@printf "\033[32mProgram built\n\033[0m"
 
 test: ## Test project
 	@ctest --test-dir ./build/debug/tests
