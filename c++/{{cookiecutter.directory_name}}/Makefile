@@ -12,11 +12,9 @@ build: ## Compile project
 
 test: ## Test project
 	@ctest --test-dir ./build/debug/tests
-	@printf "Program tested\n"
 
 run: ## Run program
 	@cd ./build/debug/src && ./main
-	@printf "Program ran\n"
 
 clean: ## Remove build related files
 	@rm -rf ./build
