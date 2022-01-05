@@ -3,8 +3,4 @@
   "cmake_project_name": "HelloWorld",
   "cmake_version": "0.1.0",
   "cmake_description": "\"Simple hello world program\"",
-  "projectile_configure": "\"make configure\"",
-  "projectile_compile": "\"make build\"",
-  "projectile_test": "\"make test\"",
-  "projectile_run": "\"make run\""
 }
