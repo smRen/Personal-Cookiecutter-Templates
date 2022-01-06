@@ -13,7 +13,7 @@ target_compile_features(main PRIVATE ${STANDARD_COMPILE_FEATURE})
 target_include_directories(
   main
   PRIVATE
-  ${{{cookiecutter.cmake_project_name}}_SOURCE_DIR}/include)
+  {{ "${{{0}_SOURCE_DIR}}/include".format(cookiecutter.cmake_project_name) }})
 target_link_libraries(
   main
   PRIVATE
