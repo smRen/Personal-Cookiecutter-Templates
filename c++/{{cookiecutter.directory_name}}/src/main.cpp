@@ -11,6 +11,9 @@
 #include <nlohmann/json.hpp>
 #include <fmt/core.h>
 
+// User libs
+#include <smren/devices/Devices.hpp>
+
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
@@ -49,8 +52,15 @@ int main() {
         read_config_file(j_config, "config.json");
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
-        return EXIT_FAILURE;
     }
 
+    // Check user libs (Device)
+    smren::Camera pi_camera{};
+    pi_camera.print_info();
+    std::cout << "Name: " << pi_camera.name << '\n';
+
+    smren::Filter filter{1, "Green Filter"};
+    filter.print_info();
+    std::cout << "Name: " << filter.name << '\n';
     return EXIT_SUCCESS;
 }

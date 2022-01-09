@@ -33,6 +33,19 @@ if(NOT json_POPULATED)
   add_subdirectory(${json_SOURCE_DIR} ${json_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+
+set(STANDARD_C++ C++20)
+if (STANDARD_C++ STREQUAL "C++20")
+  set(STANDARD_COMPILE_FEATURE cxx_std_20)
+elseif (STANDARD_C++ STREQUAL "C++17")
+  set(STANDARD_COMPILE_FEATURE cxx_std_17)
+elseif (STANDARD_C++ STREQUAL "C++11")
+  set(STANDARD_COMPILE_FEATURE cxx_std_11)
+endif()
+
+# Internal library
+add_subdirectory(src/devices)
+
 # Main source code directory
 add_subdirectory(src)
 
