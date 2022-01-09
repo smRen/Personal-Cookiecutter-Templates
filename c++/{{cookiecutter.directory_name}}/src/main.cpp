@@ -1,15 +1,15 @@
+#include <array>
 #include <filesystem>
+#include <fstream>
 #include <iostream>
+#include <span>
 #include <stdexcept>
 #include <string_view>
 #include <vector>
-#include <array>
-#include <span>
-#include <fstream>
 
 // Third party libs
-#include <nlohmann/json.hpp>
 #include <fmt/core.h>
+#include <nlohmann/json.hpp>
 
 // User libs
 #include <smren/devices/Devices.hpp>
@@ -18,12 +18,13 @@ using json = nlohmann::json;
 namespace fs = std::filesystem;
 
 void printMe(std::span<int> container) {
-    std::cout << "container.size(): " << container.size() << '\n';  // (4)
-    for(auto e : container) std::cout << e << ' ';
+    std::cout << "container.size(): " << container.size() << '\n';
+    for (auto e : container)
+        std::cout << e << ' ';
     std::cout << "\n\n";
 }
 
-void read_config_file(json& j_config, std::string_view filename) {
+void read_config_file(json &j_config, std::string_view filename) {
     fs::path json_file{filename};
     if (fs::exists(json_file)) {
         j_config = json::parse(std::ifstream(json_file));
@@ -50,7 +51,7 @@ int main() {
     try {
         json j_config;
         read_config_file(j_config, "config.json");
-    } catch (const std::runtime_error& e) {
+    } catch (const std::runtime_error &e) {
         std::cerr << e.what() << std::endl;
     }
 
