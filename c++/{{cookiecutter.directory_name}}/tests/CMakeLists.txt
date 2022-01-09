@@ -1,16 +1,17 @@
 enable_testing()
 
 add_executable(
-  hello_test
-  hello_test.cpp)
+  device_test
+  device_test.cpp)
 
-target_compile_features(hello_test
+target_compile_features(
+  device_test
   PUBLIC
   ${STANDARD_COMPILE_FEATURE}
 )
 
 target_link_libraries(
-  hello_test
+  device_test
   PUBLIC
   gtest_main
   nlohmann_json::nlohmann_json
@@ -19,4 +20,4 @@ target_link_libraries(
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(device_test)
