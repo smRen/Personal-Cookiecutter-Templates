@@ -55,13 +55,5 @@ int main() {
         std::cerr << e.what() << std::endl;
     }
 
-    // Check user libs (Device)
-    smren::Camera pi_camera{};
-    pi_camera.print_info();
-    std::cout << "Name: " << pi_camera.name << '\n';
-
-    smren::Filter filter{1, "Green Filter"};
-    filter.print_info();
-    std::cout << "Name: " << filter.name << '\n';
     return EXIT_SUCCESS;
 }
