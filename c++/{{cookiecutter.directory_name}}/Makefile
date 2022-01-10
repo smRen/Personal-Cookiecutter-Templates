@@ -11,7 +11,7 @@ build: ## Compile project
 	@printf "\n\033[32mProgram built\n\033[0m\n"
 
 test: ## Test project
-	@ctest --test-dir ./build/debug/tests
+	@GTEST_COLOR=1 ctest --test-dir ./build/debug/tests --verbose --output-on-failure
 
 run: ## Run program
 	@cd ./build/debug/src && ./main
