@@ -7,11 +7,11 @@ configure: ## Configure default cmake project debug with GCC and Ninja
 	@printf "\033[32mCopied compile_commands.json to project root\n\033[0m\n"
 
 build: ## Compile project
-	@cmake --build ./build/debug
+	@cmake --build ./build/debug -j$(nproc)
 	@printf "\n\033[32mProgram built\n\033[0m\n"
 
 test: ## Test project
-	@GTEST_COLOR=1 ctest --test-dir ./build/debug/tests --verbose --output-on-failure
+	@GTEST_COLOR=1 ctest --test-dir ./build/debug/tests --verbose --output-on-failure -j$(nproc)
 
 run: ## Run program
 	@cd ./build/debug/src && ./main
