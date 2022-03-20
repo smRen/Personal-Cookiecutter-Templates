@@ -14,7 +14,7 @@ test: ## Test project
 	@GTEST_COLOR=1 ctest --test-dir ./build/debug/tests --verbose --output-on-failure -j$(nproc)
 
 run: ## Run program
-	@cd ./build/debug/src && ./main
+	@cd ./build/debug/bin && ./main
 
 clean: ## Remove build related files
 	@rm -rf ./build
